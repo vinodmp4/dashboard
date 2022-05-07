@@ -1,0 +1,155 @@
+<html>
+<head>
+<title>Dashboard</title>
+<style>
+#meter{
+	width:250px;
+	height:250px;
+	border:2px solid red;
+	border-radius:50%;
+	position:relative;
+	
+}
+#meter #needle1{
+	width:3px;
+	height:60px;
+	border:1px solid yellow;
+	border-radius:5px;
+	background-color:red;
+	position:absolute;
+	top:25%;
+	left:49%;
+	z-index:111;
+	transform-origin:bottom;
+	transform:rotate(-134deg);
+	transition:2s;
+	
+}
+#point{
+	width:20px;
+	height:20px;
+	position:absolute;
+	border:1px solid yellow;
+	border-radius:50%;
+	bottom:-10px;
+	left:-9px;
+	background-color:red;
+	transition:2s;
+}
+#angle{
+	color:red;
+	top:10%;
+	left:45%;
+	height:100px;
+	position:absolute;
+	transform-origin:bottom center;
+}
+.angle0{
+	transform:rotate(-134deg);
+}
+.angle1{
+	transform:rotate(-108deg);
+}
+.angle2{
+	transform:rotate(-81deg);
+}
+.angle3{
+	transform:rotate(-54deg);
+}
+.angle4{
+	transform:rotate(-27deg);
+}
+.angle5{
+	transform:rotate(0deg);
+}
+.angle6{
+	transform:rotate(26deg);
+}
+.angle7{
+	transform:rotate(53deg);
+}
+.angle8{
+	transform:rotate(80deg);
+}
+.angle9{
+	transform:rotate(107deg);
+}
+.angle10{
+	transform:rotate(134deg);
+}
+#reset0{
+	transform:rotate(134deg);
+}
+#reset10{
+	transform:rotate(108deg);
+}
+#reset20{
+	transform:rotate(81deg);
+}
+#reset30{
+	transform:rotate(54deg);
+}
+#reset40{
+	transform:rotate(27deg);
+}
+#reset50{
+	transform:rotate(0deg);
+}
+#reset60{
+	transform:rotate(-26deg);
+}
+#reset70{
+	transform:rotate(-53deg);
+}
+#reset80{
+	transform:rotate(-80deg);
+}
+#reset90{
+	transform:rotate(-107deg);
+}
+#reset100{
+	transform:rotate(-134deg);
+}
+</style>
+
+</head>
+<body>
+<script>
+function setvalue(value){
+	var maxval = 100;
+	var n = -134 + parseInt((268/maxval)* value);
+	let  text = "transform-origin:bottom; transform:rotate(";
+	var x = n.toString();
+	var s_text = text.concat(x,"deg); transition:2s;");
+	var needle = document.getElementById('needle1');
+	needle.style.cssText = s_text;
+}
+function setmeter(){
+	var value = parseInt(document.getElementById("a").value);
+	setvalue(value);
+}
+</script>
+<div id="meter">
+<div id="angle" class="angle0"><div      id="reset0">0</div></div>
+<div id="angle" class="angle1"><div    id="reset10">10</div></div>
+<div id="angle" class="angle2"><div    id="reset20">20</div></div>
+<div id="angle" class="angle3"><div    id="reset30">30</div></div>
+<div id="angle" class="angle4"><div    id="reset40">40</div></div>
+<div id="angle" class="angle5"><div    id="reset50">50</div></div>
+<div id="angle" class="angle6"><div    id="reset60">60</div></div>
+<div id="angle" class="angle7"><div    id="reset70">70</div></div>
+<div id="angle" class="angle8"><div    id="reset80">80</div></div>
+<div id="angle" class="angle9"><div    id="reset90">90</div></div>
+<div id="angle" class="angle10"><div id="reset100">100</div></div>
+<div id="needle1">
+<div id="point"></div>
+</div>
+</div>
+
+<input id="a" type="text">
+<button onclick="setmeter()">Set Value</button>
+
+
+
+</body>
+</html>
